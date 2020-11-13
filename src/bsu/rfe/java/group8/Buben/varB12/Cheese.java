@@ -1,0 +1,20 @@
+package bsu.rfe.java.group8.Buben.varB12;
+
+public class Cheese extends Food{
+    public Cheese() {
+        super("Сыр");
+    }
+    public double calculateCalories()
+    {
+        return 1000;
+    }
+    public void consume() {
+        System.out.println(this + " Калорийности " + calculateCalories() + " съеден");
+    }
+// Переопределять метод equals() в данном классе не нужно, т.к. он
+// не добавляет новых полей данных, а сравнение по внутреннему полю name
+// уже реализовано в базовом классе
+// Переопределять метод toString() в данном классе не нужно, т.к. он
+// не добавляет внутренних полей данных, а возврат поля name уже
+// реализован в версии toString() базового класса
+}
