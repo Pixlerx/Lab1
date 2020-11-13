@@ -1,8 +1,9 @@
 package bsu.rfe.java.group8.Buben.varB12;
+
 import java.util.Arrays;
+
 public class MainApplication {
-    // Конструктор класса отсутствует
-    // Главный метод главного класса
+
     @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Exception {
         // Определение ссылок на продукты завтрака
@@ -20,50 +21,59 @@ public class MainApplication {
         int itemsSoFar = 0;
         for (String arg : args) {
             String[] parts = arg.split("/");
-            if (parts[0].equals("Cheese")) {
-// У сыра дополнительных параметров нет
+            if (parts[0].equals("Cheese"))
+            {
                 breakfast[itemsSoFar] = new Cheese();
                 howManyCheeses++;
-            } else if (parts[0].equals("Apple")) {
-// У яблока – 1 параметр, который находится в parts[1]
+            }
+            else if (parts[0].equals("Apple"))
+            {
+
                 breakfast[itemsSoFar] = new Apple(parts[1]);
-                if (parts[1].equals("Big")) {
+                if (parts[1].equals("большое"))
+                {
                     howManyBigApples++;
-                } else if (parts[1].equals("Middle")) {
+                }
+                else if (parts[1].equals("среднее"))
+                {
                     howManyMiddleApples++;
-                } else if (parts[1].equals("Little")) {
+                }
+                else if (parts[1].equals("маленькое"))
+                {
                     howManyLittleApples++;
                 }
             }
-            if (parts[0].equals("Beef")) {
-// У яблока – 1 параметр, который находится в parts[1]
+            if (parts[0].equals("Beef"))
+            {
                 breakfast[itemsSoFar] = new Beef(parts[1]);
-                if (parts[1].equals("With Blood")) {
+                if (parts[1].equals("с кровью"))
+                {
                     howManyBeefsWithBlood++;
-                } else if (parts[1].equals("Normal")) {
+                }
+                else if (parts[1].equals("норма"))
+                {
                     howManyNormalBeefs++;
-                } else if (parts[1].equals("Grill")) {
+                }
+                else if (parts[1].equals("прожаренное"))
+                {
                     howManyGrillBeefs++;
                 }
             }
-// ... Продолжается анализ других продуктов для завтрака
             itemsSoFar++;
         }
         Arrays.sort(breakfast, new FoodComparator());
-// Перебор всех элементов массива
         for (Food item : breakfast)
             if (item != null)
 // Если элемент не null – употребить продукт
                 item.consume();
             else
-// Если дошли до элемента null – значит достигли конца
-// списка продуктов, ведь 20 элементов в массиве было
-// выделено с запасом, и они могут быть не
-// использованы все
                 break;
-        for (String arg : args) {
-            if (arg.startsWith("-")) {
-                if (arg.equals("-calories")) {
+        for (String arg : args)
+        {
+            if (arg.startsWith("-"))
+            {
+                if (arg.equals("-calories"))
+                {
                     for (Food item : breakfast)
                         if (item != null)
                             howManyCalories += item.calculateCalories();
@@ -71,41 +81,32 @@ public class MainApplication {
                             break;
                     System.out.println("Calories in your breakfast: " + howManyCalories);
                 }
-                else
-                if (arg.equals("-sort"))
-                {
+                else if (arg.equals("-sort")) {
                     Arrays.sort(breakfast, new FoodComparator());
                     System.out.println();
                 }
             }
         }
-        if (howManyLittleApples != 0)
-        {
+        if (howManyLittleApples != 0) {
             System.out.println("Съедено маленьких яблок: " + howManyLittleApples);
         }
-        if (howManyMiddleApples != 0)
-        {
+        if (howManyMiddleApples != 0) {
             System.out.println("Съедено средних яблок: " + howManyMiddleApples);
         }
-        if (howManyBigApples != 0)
-        {
+        if (howManyBigApples != 0) {
             System.out.println("Съедено больших яблок: " + howManyBigApples);
         }
-        if (howManyBeefsWithBlood != 0)
-        {
-            System.out.println("Съедено ломтиков мяса с кровью: " + howManyBeefsWithBlood);
+        if (howManyBeefsWithBlood != 0) {
+            System.out.println("Съедено кусков мяса с кровью: " + howManyBeefsWithBlood);
         }
-        if (howManyGrillBeefs != 0)
-        {
-            System.out.println("Съедено ломтиков мяса с прожаркой: " + howManyGrillBeefs);
+        if (howManyGrillBeefs != 0) {
+            System.out.println("Съедено кусков мяса с прожаркой: " + howManyGrillBeefs);
         }
-        if (howManyNormalBeefs != 0)
-        {
-            System.out.println("Съедено ломтиков мяса с нормой: " + howManyNormalBeefs);
+        if (howManyNormalBeefs != 0) {
+            System.out.println("Съедено кусков мяса с нормой: " + howManyNormalBeefs);
         }
         System.out.println("Всего хорошего!");
-        if(howManyCheeses!=0)
-        {
+        if (howManyCheeses != 0) {
             System.out.println("Съедено ломтиков сыра: " + howManyCheeses);
         }
     }

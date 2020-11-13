@@ -1,6 +1,7 @@
 package bsu.rfe.java.group8.Buben.varB12;
 
-public class Beef extends Food{
+public class Beef extends Food
+{
     private String preparedness;
     public Beef(String preparedness)
     {
@@ -10,7 +11,8 @@ public class Beef extends Food{
     public void consume () {
         System.out.println(this + " Калорийности: " + calculateCalories() + " съедено");
     }
-    public boolean equals(Object arg0) {
+    public boolean equals(Object arg0)
+    {
         if (super.equals(arg0)) { // Шаг 1
             if (!(arg0 instanceof Apple)) return false; // Шаг 2
             return preparedness.equals(((Apple)arg0).name); // Шаг 3
